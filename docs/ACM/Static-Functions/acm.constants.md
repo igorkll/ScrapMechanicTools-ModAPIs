@@ -14,10 +14,10 @@ Contains various static values.
 ### version
 
 ```lua
-ACM.constants.version = "0.7.0"
+ACM.constants.version = "0.8.0"
 ```
 
-Contains the current version of the ACM mod as a string, e.g. <code>"0.7.0"</code>.
+Contains the current version of the ACM mod as a string, e.g. <code>"0.8.0"</code>.
 
 - <strong>type:</strong> <code>string</code>
 - <strong>value:</strong> The current mod version.

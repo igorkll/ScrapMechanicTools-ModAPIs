@@ -43,12 +43,15 @@ This can be used to determine whether [cl_stop](#cl_stop) should be called or no
 ### sv_fire
 
 ```lua
-<Laser>:sv_fire( position, direction, range, simple )
+<Laser>:sv_fire( position, direction, range, simple, scale, useSphereCast )
 ```
+<code>Server-Only</code> <br></br>
 
 Fires the laser on the server. <br></br>
 The serverside laser beam is what calculates interactions with other objects, like activating laser receivers, <br></br>
 getting the hit shapes, etc.
+
+A <code>scale</code> value of 1 creates a laser with default size.
 
 If <code>simple</code> is true, the laser will behave exactly the same as the laser fired by the existing 'Laser' interactable. <br></br>
 This means that any registered laser receivers will be activated if they are hit by the laser beam <br></br>
@@ -85,22 +88,30 @@ To have a "constant" laser beam, you need to call this every tick.
 - <code>direction</code> [<strong> Vec3 </strong>]: The laser beam's direction.
 - <code>range</code> [<strong> number </strong>]: The range of the beam in blocks.
 - <code>simple</code> [<strong> bool </strong>]: Whether the laser is fired in 'simple' mode or not. Defaults to false.
+- <code>scale</code> [<strong> number </strong>]: The thickness scale of the laser. Only used when useSphereCast is true. Defaults to 1.
+- <code>useSphereCast</code> [<strong> bool </strong>]: Whether the laser uses a spherecast or raycast. Defaults to raycast.
 
 <strong>Returns:</strong> <br></br>
 
-- [<strong> table/nil </strong>]: The table of hit data, or nil if fired in 'simple' mode.
+- [<strong> table/nil </strong>]: The table of laser hit data, or nil if fired in 'simple' mode.
 
 ---
 
 ### cl_fire
 
 ```lua
-<Laser>:cl_fire( position, direction, range, color )
+<Laser>:cl_fire( position, direction, range, color, scale, useSphereCast )
 ```
+<code>Client-Only</code> <br></br>
 
 Fires the laser on the client. <br></br>
 The clientside laser beam is what handles the graphical part of the laser - mainly generating <br></br>
 the actual, visible laser beam in the game world.
+
+A <code>scale</code> value of 1 creates a laser with default size.
+
+In ACM V2_0.8.0 and later, this function returns laser hit data. <br></br>
+The data structure is the same as the one returned by [sv_fire](#sv_fire).
 
 :::info note
 You should make sure that you fire the clientside laser beam with the same <br></br>
@@ -118,6 +129,12 @@ To have a "constant" laser beam, you need to call this every tick.
 - <code>direction</code> [<strong> Vec3 </strong>]: The laser beam's direction.
 - <code>range</code> [<strong> number </strong>]: The range of the beam in blocks.
 - <code>color</code> [<strong> Color </strong>]: The laser color. Defaults to <code>sm.color.new( "#df7f01" )</code>.
+- <code>scale</code> [<strong> number </strong>]: The thickness scale of the laser. Defaults to 1.
+- <code>useSphereCast</code> [<strong> bool </strong>]: Whether the laser uses a spherecast or raycast. Defaults to raycast.
+
+<strong>Returns:</strong> <br></br>
+
+- [<strong> table </strong>]: The table of laser hit data.
 
 ---
 
@@ -126,6 +143,7 @@ To have a "constant" laser beam, you need to call this every tick.
 ```lua
 <Laser>:cl_stop()
 ```
+<code>Client-Only</code> <br></br>
 
 Stops the laser beam.
 
@@ -143,6 +161,7 @@ you need to call this function once to make the laser beam disappear from the wo
 ```lua
 <Laser>:cl_destroy()
 ```
+<code>Client-Only</code> <br></br>
 
 Destroys the laser's beam effects. <br></br>
 This should be called if the laser is no longer being used, for example in the <code>client_onDestroy</code> callback.

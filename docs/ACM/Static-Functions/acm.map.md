@@ -16,6 +16,7 @@ The <code>map</code> library contains functions to interact with the map and cha
 ```lua
 ACM.map.save( name, addToSavepoints, override )
 ```
+<code>Server-Only</code> <br></br>
 
 Creates a save state of the map. <br></br>
 This save state saves all players and creations in the world, their current position, rotation, active state, etc. <br></br>
@@ -48,6 +49,7 @@ creating the save state will fail.
 ```lua
 ACM.map.load( name, disableSpawnpoints )
 ```
+<code>Server-Only</code> <br></br>
 
 Loads a saved state. <br></br>
 This will undo any changes made to the map after creating the save state and restore it <br></br>
@@ -76,6 +78,7 @@ Returns false if there was no save with the given name.
 ```lua
 ACM.map.getMapState()
 ```
+<code>Server-Only</code> <br></br>
 
 Returns the current [map state](/ACM/Static-Functions/acm.constants#mapstates). <br></br>
 If this function returns <code>"unknown"</code>, something went very wrong.
@@ -91,6 +94,7 @@ If this function returns <code>"unknown"</code>, something went very wrong.
 ```lua
 ACM.map.finalize()
 ```
+<code>Server-Only</code> <br></br>
 
 Finalizes the map. <br></br>
 This permanently disables all creator-only features (like the <code>/settings</code> command). <br></br>
@@ -111,6 +115,7 @@ The map can only be finalized if the challenge is <strong>not</strong> running.
 ```lua
 ACM.map.startChallengeTest()
 ```
+<code>Server-Only</code> <br></br>
 
 Starts the challenge in <strong>test mode</strong>. <br></br>
 This is normally used while the map is not finalized, to test the challenge. <br></br>
@@ -133,6 +138,7 @@ Test mode can only be activated if the challenge is <strong>not</strong> running
 ```lua
 ACM.map.startChallenge()
 ```
+<code>Server-Only</code> <br></br>
 
 Starts the challenge in <strong>play mode</strong>. <br></br>
 This is normally used to start the challenge after it is finalized, to play it. <br></br>
@@ -159,6 +165,7 @@ Play mode can only be activated if the challenge is <strong>not</strong> running
 ```lua
 ACM.map.resetChallenge()
 ```
+<code>Server-Only</code> <br></br>
 
 Resets the level and stops the challenge.
 
@@ -179,6 +186,7 @@ This only works if the challenge is running.
 ```lua
 ACM.map.restartChallenge()
 ```
+<code>Server-Only</code> <br></br>
 
 Resets the level and stops the challenge.
 
@@ -197,6 +205,7 @@ This only works if the challenge is running and the map is finalized.
 ```lua
 ACM.map.finishChallenge()
 ```
+<code>Server-Only</code> <br></br>
 
 Finishes the challenge level.
 
@@ -211,6 +220,7 @@ This only works if the challenge is running and not finished.
 ```lua
 ACM.map.getLevelCreations()
 ```
+<code>Server-Only</code> <br></br>
 
 Returns a list of JSON strings representing all creations in the world. <br></br>
 The data contains transform data, e.g. position, rotation, bearing rotation, etc.

@@ -11,6 +11,72 @@ sidebar-label: 'ACM.util'
 
 The <code>util</code> library contains various useful utility functions.
 
+### getAtFromQuat
+
+```lua
+ACM.util.getAtFromQuat( quat )
+```
+
+Returns the <code>at</code> direction vector of the quaternion.
+
+:::info note
+This function works different from <code>sm.quat.getAt</code>!
+:::
+
+<strong>Arguments:</strong> <br></br>
+
+- <code>quat</code> [<strong> Quat </strong>]: The quaternion.
+
+<strong>Returns:</strong> <br></br>
+
+- [<strong> Vec3 </strong>]: The <code>at</code> vector.
+
+---
+
+### getUpFromQuat
+
+```lua
+ACM.util.getUpFromQuat( quat )
+```
+
+Returns the <code>up</code> direction vector of the quaternion.
+
+:::info note
+This function works different from <code>sm.quat.getUp</code>!
+:::
+
+<strong>Arguments:</strong> <br></br>
+
+- <code>quat</code> [<strong> Quat </strong>]: The quaternion.
+
+<strong>Returns:</strong> <br></br>
+
+- [<strong> Vec3 </strong>]: The <code>up</code> vector.
+
+---
+
+### getLeftFromQuat
+
+```lua
+ACM.util.getLeftFromQuat( quat )
+```
+
+Returns the <code>left</code> direction vector of the quaternion.
+
+:::info note
+This function works different from <code>sm.quat.getRight</code>!
+:::
+
+<strong>Arguments:</strong> <br></br>
+
+- <code>quat</code> [<strong> Quat </strong>]: The quaternion.
+
+<strong>Returns:</strong> <br></br>
+
+- [<strong> Vec3 </strong>]: The <code>left</code> vector.
+
+---
+
 ### splitString
 
 ```lua

@@ -37,6 +37,7 @@ It is recommended to use this function instead of the default <code>type</code> 
 ```lua
 ACM.laser.addActiveObject( object )
 ```
+<code>Server-Only</code> <br></br>
 
 Sets an interactable to be activated by the laser manager.
 
@@ -62,6 +63,7 @@ laser manager and cause unexpected behavior.
 ```lua
 ACM.laser.addReceiver( object )
 ```
+<code>Server-Only</code> <br></br>
 
 Registers an interactable as a Laser Receiver. <br></br>
 A registered Laser Receiver can be activated using [addActiveObject](#addactiveobject) <br></br>
@@ -79,6 +81,7 @@ Also registers the part's UUID so it can be recognized by [getShapeType](#getsha
 ```lua
 ACM.laser.removeReceiver( object )
 ```
+<code>Server-Only</code> <br></br>
 
 Un-registers a Laser Receiver interactable from the laser manager. <br></br>
 This should be done in the script's <code>server_onDestroy</code> callback. <br></br>
@@ -96,6 +99,7 @@ that does not exist will automatically be removed in the next game tick.
 ```lua
 ACM.laser.getShapeType( object )
 ```
+<code>Server-Only</code> <br></br>
 
 Returns the laser-related type of the given shape.
 

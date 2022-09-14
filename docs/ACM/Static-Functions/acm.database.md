@@ -18,6 +18,7 @@ This database is automatically saved to the save file every 2.5 seconds if the d
 ```lua
 ACM.database.getVersion()
 ```
+<code>Server-Only</code> <br></br>
 
 Returns the current version of the database library.
 
@@ -27,11 +28,56 @@ Returns the current version of the database library.
 
 ---
 
+### getGlobal
+
+```lua
+ACM.database.getGlobal( key )
+```
+
+Returns data that was set to the given key using [setGlobal](#setglobal). <br></br>
+If no data was set, this returns nil.
+
+<strong>Returns:</strong> <br></br>
+
+- [<strong> any </strong>]: The data.
+
+---
+
+### setGlobal
+
+```lua
+ACM.database.setGlobal( key, data )
+```
+
+Sets any Lua data to a global key. <br></br>
+This global data can be read by the game and any other mods using [getGlobal](#getglobal). <br></br>
+
+This provides a simple way to share global data across different mods without having to <br></br>
+write any data into the global <code>sm</code> table.
+
+If there is already some data at the given key, the existing data is overwritten. <br></br>
+To erase the data, set <code>nil</code>.
+
+:::info note
+When using this on the client, the set data is <strong>not</strong> synchronized to other clients!
+
+Data set using this function is <strong>not</strong> saved - this means that after a world reload <br></br>
+or game restart, the set data will be lost!
+:::
+
+<strong>Arguments:</strong> <br></br>
+
+- <code>key</code> [<strong> string </strong>]: The key.
+- <code>data</code> [<strong> any </strong>]: The data. Can be anything.
+
+---
+
 ### getModData
 
 ```lua
 ACM.database.getModData( key, category )
 ```
+<code>Server-Only</code> <br></br>
 
 Returns mod data that was saved with the given database key. <br></br>
 If a category name is provided, it returns the data in that category (or nil if there is no data). <br></br>
@@ -55,6 +101,7 @@ Note that this <strong>will error out</strong> if the given key is not registere
 ```lua
 ACM.database.setModData( key, category, data )
 ```
+<code>Server-Only</code> <br></br>
 
 Saves mod data with the given database key, in the given category.
 
@@ -86,6 +133,7 @@ Note that this <strong>will error out</strong> if the given key is not registere
 ```lua
 ACM.database.setModKey( key )
 ```
+<code>Server-Only</code> <br></br>
 
 Registers a database key to be used for accessing the database. <br></br>
 If a key is given, it will try to register that key. <br></br>
@@ -116,6 +164,7 @@ If you generate a random key using this function, you need to store it somewhere
 ```lua
 ACM.database.isValidKey( key )
 ```
+<code>Server-Only</code> <br></br>
 
 Checks if the given database key is registered in the database or not.
 
@@ -134,6 +183,7 @@ Checks if the given database key is registered in the database or not.
 ```lua
 ACM.database.getGameData( category )
 ```
+<code>Server-Only</code> <br></br>
 
 Returns a table containing game settings and/or values in the given category. <br></br>
 Returns <code>nil</code> if the given category is invalid.
@@ -168,6 +218,7 @@ returned data will <strong>not</strong> change the actual setting(s).
 ```lua
 ACM.database.exportDatabase()
 ```
+<code>Server-Only</code> <br></br>
 
 Exports the whole database to a JSON string.
 
