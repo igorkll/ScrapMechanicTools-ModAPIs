@@ -68,6 +68,19 @@ Some of the available events are:
 		}
 
 		{
+			type = "onMelee",	Called when a melee attack (e.g. hammer) hits something in the world.
+			params = {
+				position,		The attack hit position
+				attacker,		The source of the attack
+				target,			The object that was hit
+				damage,			The damage that the attack does
+				power,			The physical impact power of the hit
+				direction,		The direction of the attack
+				normal			The normal vector at the hit position
+			}
+		}
+
+		{
 			type = "onInteractableCreated",	Called when an interactable is created in the world
 			params = {
 				interactable		The created interactable

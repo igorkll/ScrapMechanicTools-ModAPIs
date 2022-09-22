@@ -24,6 +24,16 @@ This documentation is currently for ACM version <code>0.8.0</code>.
 
 ## API Change Log
 
+### Version 0.8.1
+
+#### New Functions
+
+- New Function: [ACM.game.queueChatMessage](/ACM/Static-Functions/acm.game#queuechatmessage)
+
+#### Other Changes
+
+- New game event: [sv_ev_onWorldEvent/onMelee](/ACM/Static-Functions/acm.event#addeventlistener)
+
 ### Version 0.8.0
 
 #### New Libraries

@@ -41,3 +41,23 @@ The following commands are <strong>blacklisted</strong> and cannot be registered
 
 ---
 
+### queueChatMessage
+
+```lua
+ACM.game.queueChatMessage( message, priority )
+```
+<code>Client-Only</code> <br></br>
+
+Queues a chat message to be displayed <strong>after</strong> the ACM "welcome" text.
+
+The <code>priority</code> parameter controls the order in which the messages are sent - it ranges <br></br>
+from <code>1 - 5</code>, where a lower number means the message is sent earlier and a higher number <br></br>
+means the message is sent later. <br></br>
+Messages with a priority outside of the <code>1 - 5</code> range will never be sent.
+
+<strong>Arguments:</strong> <br></br>
+
+- <code>message</code> [<strong> string </strong>]: The message to be queued.
+- <code>priority</code> [<strong> number </strong>]: The message priority. Defaults to 1.
+
+---

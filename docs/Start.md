@@ -6,12 +6,13 @@ sidebar-label: 'Start'
 slug: /
 ---
 
-### Mod APIs
+### Custom APIs
 
-This page provides documentation for custom Mod APIs of various workshop mods.
+This page provides documentation for various custom Lua API modifications for Scrap Mechanic. <br></br>
+For example, workshop mods that provide a custom API for other mods, or mods that change the Lua API in other ways.
 
-If you made a mod that provides a custom Mod API and want it to be added to the list, <br></br>
-you can do so in multiple ways:
+If you made something that modifies the Scrap Mechanic Lua API and want its features to be documented <br></br>
+here, you can do so in multiple ways:
 
 - Add it yourself on [GitHub](https://github.com/MrCrackx04/ScrapMechanicTools-ModAPIs)
 - Contact me and I'll add it manually:
