@@ -20,9 +20,15 @@ A mod with example scripts showing how to use various parts of the API was made 
 [Steam Workshop (Steam Client)](steam://openurl/https://steamcommunity.com/sharedfiles/filedetails/?id=2855617052) <br></br>
 [ZIP Download](/files/ACM_Mod_API_Examples.zip)
 
-This documentation is currently for ACM version <code>0.8.0</code>.
+This documentation is currently for ACM version <code>0.8.2</code>.
 
 ## API Change Log
+
+### Version 0.8.2
+
+#### New Libraries
+
+- New Library: [ACM.loot](/ACM/Static-Functions/acm.loot)
 
 ### Version 0.8.1
 

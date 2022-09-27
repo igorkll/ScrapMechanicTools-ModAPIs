@@ -37,7 +37,7 @@ The <code>handler</code> parameter defines how the XML data is handled: <br></br
 ### writeXmlString
 
 ```lua
-local xml = dllmod.xml.parseXmlString( data, rootName )
+local xml = dllmod.xml.writeXmlString( data, rootName )
 ```
 
 Loads and converts a Lua table to an XML data string.
