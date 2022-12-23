@@ -17,7 +17,16 @@ are *completely custom-made* specifically for this mod.
 
 Apart from this, DLM also applies some other, minor improvements (see [Other Changes](/modapis/DLM/other_changes)).
 
-Also note that this mod does NOT affect multiplayer - you can play without any issues even with this mod installed.
+Also note that DLM does NOT affect multiplayer - you can play without any issues even with this mod installed.
+
+### Download DLM
+
+You can download the newest DLM version [here](/files/DLM_API_Extension_2_2.zip).
+
+Older versions of DLM can be found [below](#old-versions).
+
+**DLM API Documentation** can be found in the categories on the left and <br></br>
+as a [Lua documentation file](/files/DLM.lua) (written by Tofix.rs).
 
 ### How to install and use
 
@@ -45,7 +54,7 @@ not reported said bug using one of the 4 ways above! <br></br> <br></br>
 using it, *especially* if you downloaded this mod from any place other than this website.**
 :::
 
-Now, first <strong>download DLM here</strong>: [DOWNLOAD](/files/DLM_API_Extension.zip)
+First, download DLM from [the link above](/files/DLM_API_Extension_2_2.zip).
 
 To install it, simply un-zip the zip file into any folder, then open the extracted <code>DLM API Extension</code> folder and run the provided <code>install.exe</code>. <br></br>
 If the installer fails or you do not want to run it, you can also manually copy the files in the <code>DLM API Extension/files/</code> folder, <br></br>
@@ -56,9 +65,35 @@ To <strong>remove DLM</strong>, either use the provided <code>uninstall.exe</cod
 
 After installing, you can use the API functions listed in the categories on the left.
 
+:::info note
+As of DLM version 2.1, the extension does not work with the custom game test button in the Mod Tool. <br></br>
+**This will be fixed in version 3.0.** <br></br> <br></br>
+
+The DLM installer may not work properly if Scrap Mechanic is not installed in the default directory (C:/Program Files(x86)/...). <br></br>
+**This will be fixed soon.**
+:::
+
 More information about the mod, bug reports, known bugs and update notifications can be found in the [Discord Server](https://discord.gg/2eACct5FDm).
 
+
+
+
+
+
+
 ## Change Log
+
+### Version 2.2
+
+#### Fixes
+
+- Attempted to fix a very rare crash that might have been caused by DLM (???)
+
+### Version 2.1
+
+#### Fixes
+
+- Fixed [dlm.gui.createGuiFromXmlString](/modapis/DLM/Static-Functions/dlm.gui#createguifromxmlstring) not working
 
 ### Version 2.0
 
@@ -93,12 +128,20 @@ The global <code>dllmod</code> table still exists, though I highly recommend usi
 
 - First release
 
+
+
+
+
+
 ## Old Versions
 
 Below you can download old versions of DLM.
 
-<strong>Note - These versions are no longer supported and may contain bugs that are fixed in newer versions.</strong>
+<strong>Note - These versions are no longer supported and may contain bugs that are fixed in newer versions. <br></br>
+They are only here for backwards compatibility, e.g. if a mod requires a specific DLM version.</strong> <br></br> <br></br>
 
-[DLM Version 1.0](/files/DLLMod.zip)
+- [DLM Version 2.1](/files/DLM_API_Extension_2_1.zip)
+- [DLM Version 2.0](/files/DLM_API_Extension.zip)
+- [DLM Version 1.0](/files/DLLMod.zip)
 
 
