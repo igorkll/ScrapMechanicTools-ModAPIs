@@ -11,7 +11,10 @@ sidebar-label: 'sci.input'
 
 ```lua
 local inputActive = sci.input()
-local redInputActive = sci.input( "#ff0000" )
+local redInputActive = sci.ninput( "#ff0000" )
+
+local numberInputs = sci.input()
+local redNumberInputs = sci.ninput( "#ff0000" )
 ```
 
 Gets the current logic input signal of the block, If any one of the connected inputs is active, it returns true, else false.

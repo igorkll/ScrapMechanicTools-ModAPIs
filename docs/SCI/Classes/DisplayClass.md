@@ -214,8 +214,8 @@ Clears all clicks.
 
 ### setRenderAtDistance(bool)
 
-Sets the render on distances. (A performance increase when enabled.)
-<strong>Returns:</strong> <br></br>
+Sets if it sould always render or be at a range. (A performance increase when enabled.)
+<strong>Arguments:</strong> <br></br>
 
 - <code>renderatdistance</code> [<strong> boolean </strong>]: The new value
 
@@ -224,11 +224,11 @@ Sets the render on distances. (A performance increase when enabled.)
 
 ### getRenderAtDistance()
 
-Gets the render on distances.
+Gets if it sould be rendered at range or always rendered.
 
-<strong>Arguments:</strong> <br></br>
+<strong>Returns:</strong> <br></br>
 
-- <code>velocity</code> [<strong> number </strong>]: The current velocity.
+- <code>isrenderatdistance</code> [<strong> boolean </strong>]: The current value.
 
 
 ---

@@ -7,7 +7,7 @@ sidebar-label: 'Info'
 
 <br></br>
 
-![SCI Image](/img/SCI.png)
+![SCI Image](/img/SCI_New.jpg)
 
 SCI is a mod where you can program from games to computers! You can do whatever you can do! from statuses for your drift car to anything you can think of.
 

@@ -10,7 +10,10 @@ sidebar-label: 'sci.ninput'
 ### sci.ninput
 
 ```lua
-local numberInputs = sci.ninput()
+local inputActive = sci.input()
+local redInputActive = sci.ninput( "#ff0000" )
+
+local numberInputs = sci.input()
 local redNumberInputs = sci.ninput( "#ff0000" )
 ```
 
