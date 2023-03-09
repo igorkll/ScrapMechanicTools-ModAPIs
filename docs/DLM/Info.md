@@ -21,7 +21,7 @@ Also note that DLM does NOT affect multiplayer - you can play without any issues
 
 ### Download DLM
 
-You can download the newest DLM version [here](/files/DLM_API_Extension_2_2.zip).
+You can download the newest DLM version [here](/files/DLM_API_Extension_2_3.zip).
 
 Older versions of DLM can be found [below](#old-versions).
 
@@ -83,6 +83,12 @@ More information about the mod, bug reports, known bugs and update notifications
 
 ## Change Log
 
+### Version 2.3
+
+#### Fixes
+
+- Fixed a bug in the [dlm.xml.parseXmlString](/modapis/DLM/Static-Functions/dlm.xml#parsexmlstring) function
+
 ### Version 2.2
 
 #### Fixes
@@ -140,6 +146,7 @@ Below you can download old versions of DLM.
 <strong>Note - These versions are no longer supported and may contain bugs that are fixed in newer versions. <br></br>
 They are only here for backwards compatibility, e.g. if a mod requires a specific DLM version.</strong> <br></br> <br></br>
 
+- [DLM Version 2.2](/files/DLM_API_Extension_2_2.zip)
 - [DLM Version 2.1](/files/DLM_API_Extension_2_1.zip)
 - [DLM Version 2.0](/files/DLM_API_Extension.zip)
 - [DLM Version 1.0](/files/DLLMod.zip)

@@ -15,7 +15,7 @@ It also contains some functions which are related to the mod itself or did not f
 ### version
 
 ```lua
-dlm.version = "2.0"
+dlm.version = "2.3"
 ```
 
 The current DLM version, as a string. <br></br>
