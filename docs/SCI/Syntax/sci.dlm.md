@@ -10,7 +10,7 @@ sidebar-label: 'sci.dlm'
 ### sci.dlm
 
 ```lua
-if sci.dlm ~= nil then print("DLM Version: "..dlm.version) else print("DLM Not Installed") end
+if sci.dlm ~= nil then print("DLM Version: "..sci.dlm.version) else print("DLM Not Installed") end
 ```
 
 SCI Supports the DLM Mod (Made by MrCrackx02) and to access it its sci.dlm. Please check DLM Mod out. it is a great mod: https://scrapmechanictools.com/modapis/DLM/Info
