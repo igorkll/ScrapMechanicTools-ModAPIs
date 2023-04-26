@@ -7,21 +7,14 @@ sidebar-label: 'Using DLM With SMInjector'
 
 ## Using DLM With SMInjector
 
-In order to be able to use DLM together with the SMInjector, two special changes need to be made. <br></br>
+In order to be able to use DLM together with the SMInjector, you need to make two changes to your SMInjector setup. <br></br>
 This is needed because the SMInjector is incompatible with DLL modifications, which DLM is. <br></br>
 
-First, [download](/modapis/DLM/Info#download-dlm) and un-zip DLM as normal.
+First, [download](/modapis/DLM/Info#download-dlm) and install DLM as normal.
 
-**Before installing DLM**, open the un-zipped DLM folder. <br></br>
-
-**If you want to use the DLM Installer:** <br></br>
-Inside the folder, open the <code>files</code> folder and find the files called <code>lua51.dll</code> and <code>lua51_clean.dll</code>. <br></br>
-**Rename** <code>lua51.dll</code> to anything else (or remove it) and rename <code>lua51_clean.dll</code> to <code>lua51.dll</code>. <br></br>
-Then use the installer to install DLM.
-
-**If you do NOT want to use the DLM installer:** <br></br>
-Inside the folder, open the <code>files</code> folder, find the file called <code>lua51.dll</code> and **delete or rename it**. <br></br>
-Then install DLM by copying the contents of the <code>files</code> folder into the <code>Release</code> folder of your Scrap Mechanic installation. <br></br>
+:::info note
+Make sure you have installed DLM **Version 2.4 or newer**, as older versions will not work.
+:::
 
 **After installing DLM**, open your SMInjector installation folder. <br></br>
 It should contain files and folders such as <code>SMInjector.exe</code> and <code>config</code>. <br></br>
@@ -50,10 +43,51 @@ Your <code>lua_hooks.json</code> file's contents should now look something like 
 }
 ```
 
-:::info note
-Using this way of installing DLM means it will *only* work with the injector. <br></br>
-In order to use DLM without an injector, the DLM Lua51 DLL is required. <br></br>
+**After adding the hook**, go back into your SMInjector installation folder. <br></br>
+In this folder (next to <code>SMInjector.exe</code>), **create a new file** called <code>Launch.bat</code> and open it in a text editor. <br></br>
+Copy-paste the following code into the file and save it:
 
-It is likely possible to create a script that automatically swaps the DLLs when the injector is used. <br></br>
-Such a script may be added below here some time in the future.
-:::
+```bat
+@echo off
+setlocal enabledelayedexpansion
+
+set "appID=387990"
+set "gameName=Scrap Mechanic"
+
+for /f "tokens=2*" %%a in ('reg query "HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Valve\Steam" /v InstallPath') do (
+    set "steamPath=%%b"
+)
+
+if not defined steamPath (
+    echo Steam is not installed on this system.
+    exit /b 1
+)
+
+for /f "tokens=2*" %%a in ('reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App %appID%" /v "InstallLocation" ^| findstr "InstallLocation"') do set INSTALL_LOCATION=%%b
+
+if not defined INSTALL_LOCATION (
+    echo %gameName% is not installed on Steam.
+    exit /b 1
+)
+
+echo %gameName% is installed at: %INSTALL_LOCATION%
+
+set release=%INSTALL_LOCATION%\Release\
+
+rename "%release%lua51.dll" lua51_DLM.dll
+rename "%release%lua51_clean.dll" lua51.dll
+
+call SMInjector.exe
+
+:loop
+timeout /t 1 /nobreak > NUL
+tasklist /fi "ImageName eq ScrapMechanic.exe" /fo csv 2>NUL | find /I "ScrapMechanic.exe">NUL
+if "%ERRORLEVEL%"=="0" goto loop
+
+rename "%release%lua51.dll" lua51_clean.dll
+rename "%release%lua51_DLM.dll" lua51.dll
+```
+
+**After saving the file**, whenever you want to use SMInjector while DLM is installed, do **not** run <code>SMInjector.exe</code> directly - instead, run the created <code>Launch.bat</code> file. <br></br>
+The <code>Launch.bat</code> file takes care of properly launching the injector to avoid compatibility issues with the modified DLL.
+
