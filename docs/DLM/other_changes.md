@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 title: Other Changes
 hide_title: true
 sidebar-label: 'Other Changes'

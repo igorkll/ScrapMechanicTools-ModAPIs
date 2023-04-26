@@ -54,6 +54,10 @@ not reported said bug using one of the 4 ways above! <br></br> <br></br>
 using it, *especially* if you downloaded this mod from any place other than this website.**
 :::
 
+:::info note
+In order to use DLM together with the [SMInjector](https://github.com/TechnologicNick/SMInjector), you need to follow special installation instructions (see [Using DLM With SMInjector](/modapis/DLM/SMInjector_install)).
+:::
+
 First, download DLM from [the link above](/files/DLM_API_Extension_2_2.zip).
 
 To install it, simply un-zip the zip file into any folder, then open the extracted <code>DLM API Extension</code> folder and run the provided <code>install.exe</code>. <br></br>
