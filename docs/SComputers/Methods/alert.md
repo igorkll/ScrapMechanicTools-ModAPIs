@@ -5,4 +5,4 @@ hide_title: true
 sidebar-label: 'alert'
 ---
 
-alert - it works exactly the same as print but outputs messages from the top of the screen
+alert(text:string) - it works exactly the same as print but outputs messages from the top of the screen

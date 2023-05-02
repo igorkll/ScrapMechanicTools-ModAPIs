@@ -5,7 +5,7 @@ hide_title: true
 sidebar-label: 'holoprojector'
 ---
 
-### synthesizer api
+### holoprojector api
 * type - holoprojector
 * reset() - resets projector settings such as scale/offset/rotation
 * clear() - removes all voxels from the projector's RAM

@@ -9,7 +9,9 @@ sidebar-label: 'Info'
 
 ![SComputers Image](/img/SComputers.jpg)
 
-## this documentation describes only the methods added by SComputers, see the official documentation for the basic methods added by Scriptable Computers: [Scriptable Computers]: https://steamcommunity.com/sharedfiles/filedetails/?id=2831560152
+## steam link: [SComputers](https://steamcommunity.com/sharedfiles/filedetails/?id=2949350596)
+
+### this documentation describes only the methods added by SComputers, see the official documentation for the basic methods added by Scriptable Computers: [Scriptable Computers Documentation](https://steamcommunity.com/sharedfiles/filedetails/?id=2831560152)
 
 SComputers, this is a fork of the Scriptable Computers mod
 this fork is compatible with the code of the original Scriptable Computers and with the SCI code
@@ -22,12 +24,11 @@ however, programs written for this mod will not work on the original Scriptable 
 * non-square displays
 * holographic projector
 * keyboard
-* tablet
 
 
 ### load implementation
 * lua-in-lua   (there are bugs)
-* scrapVM      (the best option)
+* scrapVM      (the best option - however, it also contains bugs)
 * full lua env (dangerous)
 
 
@@ -38,20 +39,26 @@ however, programs written for this mod will not work on the original Scriptable 
 
 
 ### Internal Libs
-### to get the internal libraries, use the require method
+##### to get the internal libraries, use the require method(require not required for utf8 and coroutine)
 * image
 * base64
 
 ### sandbox features
-[*] if you declare the function "callback_error(str)" then it will be called in cases of an error in the computer
+* if you declare the function "callback_error(str)" then it will be called in cases of an error in the computer
 , please note that the error in it can only be viewed in the debug console / game log
-[*] if you declare the "callback_loop" function, it will be called on the next tick instead of calling the entire program
-[*] there is a SCI api for compatibility (env.SCI =env)
-[*] added the load method, which allows you to set the name of a piece of code and works as in a normal lua, but does not allow you to load bytecode
-[*] the crashstate table has been added to the public api of the computer (getChildComputers and getParentComputers and getCurrentComputer)
+* if you declare the "callback_loop" function, it will be called on the next tick instead of calling the entire program
+* there is a SCI api for compatibility (env.SCI =env)
+* added the load method, which allows you to set the name of a piece of code and works as in a normal lua, but does not allow you to load bytecode
+* the crashstate table has been added to the public api of the computer (getChildComputers and getParentComputers and getCurrentComputer)
 there are two values hasException and exceptionMsg
 you can write your values there
 * the _endtick flag that is automatically raised if the computer's tick is the last one
+
+### tablet features
+* The renderAtDistance screen function on the tablet will display the screen even if the tablet is not in your hand
+* the tablet screen is displayed only to the one who holds it in his hand
+* press R to edit the tablet settings
+* press Q to turn the tablet on or off
 
 ### font features
 * added small english letters

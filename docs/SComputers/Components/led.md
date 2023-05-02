@@ -5,6 +5,6 @@ hide_title: true
 sidebar-label: 'led'
 ---
 
-### keyboard api
+### led api
 * type - led
 * setColor(index, color) - index(the index of the LED in the ribbon, starting from 0), color(the color you want to set)

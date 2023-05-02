@@ -5,10 +5,13 @@ hide_title: true
 sidebar-label: 'image'
 ---
 
-### image
+![image demo](/img/image_demo.png)
+
+### image library
+#### allows you to use images in bmp and scimg
 * image.new(number:resolutionX, number:resolutionY, smcolor:basecolor):img
 * image.load(disk, path):img - loads the image from the disk, if the extensions are bmp, then parses using the decodeBmp method
-иначе парсит как scimg(метод decode)
+otherwise parses as scimg(decode method)
 * image.save(img, disk, path) - saves the image to disk in scimg format (regardless of the selected expansion)
 
 * image.encode(img):string - converts an image to bytestring(in scimg format)
@@ -17,7 +20,7 @@ sidebar-label: 'image'
 
 * image.draw(img, display, number:posX[default:0], number:posY[default:0], number:gamelight(0-1)[default:1]) - 
 draw the image on the monitor, transparency is supported, but if the transparency is greater than 0, the pixel will not be transparent
-* image.drawForTicks(img, display, number:tick[default:40], number:posX[default:0], number:posY[default:0], number:gamelight(0-1)[default:1]):functiondrawer -
+* image.drawForTicks(img, display, number:tick[default:40], number:posX[default:0], number:posY[default:0], number:gamelight(0-1)[default:1]):function_drawer -
 draws an image image for a certain number of ticks (40 by default)
 will return a function that needs to be called until it returns true (further call does not make sense)
 note that one generated function can only be used 1 time

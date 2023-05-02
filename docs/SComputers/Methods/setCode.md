@@ -1,8 +1,8 @@
 ---
 sidebar_position: 8
-title: setData
+title: setCode
 hide_title: true
-sidebar-label: 'setData'
+sidebar-label: 'setCode'
 ---
 
-sets the code installed in the gui of the computer, the maximum size is 32kb
+setCode(data:string) / getCode():string - sets/gets the code installed in the gui of the computer, the maximum size is 32kb
