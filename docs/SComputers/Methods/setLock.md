@@ -5,6 +5,6 @@ hide_title: true
 sidebar-label: 'setLock'
 ---
 
-setLock(state, permanent) / getLock:state, permanent
+setLock(state, permanent) / getLock():state, permanent
 allows you to prohibit opening the gui of the computer and the gui of its built-in ssd disk,
 the lock state can be protected from change by the second argument. getLock also returns 2 boolean

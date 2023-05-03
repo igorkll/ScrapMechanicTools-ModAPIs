@@ -42,6 +42,7 @@ however, programs written for this mod will not work on the original Scriptable 
 ##### to get the internal libraries, use the require method(require not required for utf8 and coroutine)
 * image
 * base64
+* gui
 
 ### sandbox features
 * if you declare the function "callback_error(str)" then it will be called in cases of an error in the computer

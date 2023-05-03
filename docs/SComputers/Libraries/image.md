@@ -27,3 +27,6 @@ note that one generated function can only be used 1 time
 * image.get(img, x, y):smcolor
 * image.set(img, x, y, smcolor)
 * image.getSize(img):sizeX:sizeY
+* image.fromCamera(img, camera, methodName, ...) - gets a piece of the image from the camera according to its settings
+send the camera, method name, and arguments for the method (to set basecolor)
+* image.fromCameraAll(img, camera, methodName, ...) - gets all the images from the camera entirely
