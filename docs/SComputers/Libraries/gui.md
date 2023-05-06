@@ -15,6 +15,8 @@ sidebar-label: 'gui'
 * guiinstance:draw() - draw a current scene, redrawing is optional only if necessary
 * guiinstance:drawForce() - draw a current scene, redrawing always happens
 * guiinstance:createScene(autoclearcolor:smcolor):sceneinstance - create a new scene, you can transfer the color so that when you select a scene, the screen is cleared automatically
+* guiinstance:setGameLight(gamelight:number(0-1)) - sets the game lighting for the gui (it only applies to elements that do not transmit color manually(at the moment, only with pictures))
+* guiinstance:getGameLight():number(0-1) - gets the game lighting for the gui
 
 ### scene instance
 * sceneinstance:isSelected():boolean - returns true if this scene is selected
@@ -37,6 +39,11 @@ the label looks like a button
 * gbutton:getState():boolean - for normal buttons, it returns true if the button is held down. for toggle mode, it will return the button states
 * gbutton:isPress():boolean - returns true when the button is press (values are output for 1 tick)
 * gbutton:isReleased():boolean - returns true when the button is released (values are output for 1 tick)
+* gbutton:setText(text)
+* gbutton:setFgColor(smcolor)
+* gbutton:setBgColor(smcolor)
+* gbutton:setPfgColor(smcolor) - sets fg when pressed
+* gbutton:setPbgColor(smcolor) - sets bg when pressed
 
 ### object image
 * gimage:updateImage(img) - sets a new image object to draw. however, you can change the old one and call gimage:update
