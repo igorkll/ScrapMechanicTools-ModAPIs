@@ -53,9 +53,9 @@ the label looks like a button
 * gtext:setFgColor(smcolor)
 
 ### object label
-* gtext:setText(text)
-* gtext:setFgColor(smcolor)
-* gtext:setBgColor(smcolor)
+* glabel:setText(text)
+* glabel:setFgColor(smcolor)
+* glabel:setBgColor(smcolor)
 
 
 
