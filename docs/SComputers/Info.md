@@ -40,6 +40,8 @@ however, programs written for this mod will not work on the original Scriptable 
 
 ### Internal Libs
 ##### to get the internal libraries, use the require method(require not required for utf8 and coroutine)
+* utf8(not full implementation)
+* coroutine
 * image
 * base64
 * gui
