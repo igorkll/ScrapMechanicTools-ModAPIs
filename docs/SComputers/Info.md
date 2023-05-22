@@ -68,6 +68,11 @@ you can write your values there
 * added large Russian letters
 * added small Russian letters
 
+### raycast camera features
+* now methods can accept additional colors
+* drawColor(display, noCollideColor, terrainColor)
+* drawDepth(display, baseColor, noCollideColor)
+* drawColorWithDepth(display, noCollideColor, terrainColor)
 
 ### new methods of old components
 * disk.clear - clear the disk
