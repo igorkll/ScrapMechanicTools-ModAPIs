@@ -33,6 +33,7 @@ the label looks like a button
 * gobj:getLastInteractionType():number or nil - returns the type of the last interaction(1-E 2-U)
 * gobj:update() - forced redrawing of the object will occur at the next gui.draw call
 * gobj:clear(smcolor) - clears the place where the object is located with the selected color, if the color is not passed, the color of the scene will be used (if there is one)
+* gobj:setCustomStyle(function(gobj) ) - sets the function that will be used to draw the object
 
 ### object button
 * gbutton:setState(boolean) - sets the button state, use for buttons in toggle mode
@@ -72,6 +73,19 @@ image = require("image")
 
 -------------------------
 
+function buttonDrawer(self)
+    local bg, fg = self.bg, self.fg
+    if self.state then
+        bg, fg = self.bg_press, self.fg_press
+    end
+    self.display.fillRect(self.x, self.y, self.sizeX, self.sizeY, bg)
+    self.display.drawRect(self.x, self.y, self.sizeX, self.sizeY, fg)
+
+    local x = math.floor(((self.x + (self.sizeX / 2)) - (((self.display.getFontWidth() + 1) * #self.text) / 2)) + 0.5)
+    local y = math.floor(((self.y + (self.sizeY / 2)) - (self.display.getFontHeight() / 2)) + 0.5)
+    self.display.drawText(x, y - 1, self.text, fg)
+end
+
 img = image.new(32, 32, sm.color.new(0, 0, 0))
 
 scene = gui:createScene(sm.color.new(0, 0, 1))
@@ -84,6 +98,9 @@ label = scene2:createLabel(1, 1, 40, 8, "label")
 text = scene2:createText(1, 10, "text")
 selectScene1 = scene2:createButton(1, 17, 40, 8, false, "scene1")
 gimg = scene2:createImage(display.getWidth() - 32, display.getHeight() - 32, img)
+
+selectScene1:setCustomStyle(buttonDrawer)
+selectScene2:setCustomStyle(buttonDrawer)
 
 scene:select()
 

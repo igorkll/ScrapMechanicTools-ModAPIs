@@ -12,8 +12,7 @@ sidebar-label: 'holoprojector'
 * addVoxel(x, y, z, color, voxel_type) - adds a voxel to the projector's RAM, the voxel type is omitted 0,
 the position relative to the center of the holographic projector
 * flush() - renders voxels added to RAM
-the maximum number of voxels displayed at the same time is 4096
-however it is not recommended to make more than 1024 voxels
+however it is not recommended to make more than 2048 voxels
 * setOffset(x, y, z) / getOffset:x,y,z - sets the offset relative to the center of the holographic projector
 * setRotation(x, y, z) / getRotation:x,y,z - sets the rotation of the entire figure relative to the center of the holographic projector
 * setScale(x, y, z) / getScale:x,y,z - sets the scale
