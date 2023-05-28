@@ -6,6 +6,9 @@ sidebar-label: 'colors'
 ---
 
 ### painttool colors consts
+#### consts names
+* colors.names = {"Gray", "Yellow", "LimeGreen", "Green", "Cyan", "Blue", "Violet", "Magenta", "Red", "Orange"}
+
 #### number consts
 * colors.num.Gray	    = {0xEEEEEE, 0x7F7F7F, 0x4A4A4A, 0x222222}
 * colors.num.Yellow     = {0xF5F071, 0xE2DB13, 0x817C00, 0x323000}
@@ -41,7 +44,9 @@ sidebar-label: 'colors'
 * colors.sm.Magenta     = {smcolor, smcolor, smcolor, smcolor}
 * colors.sm.Red         = {smcolor, smcolor, smcolor, smcolor}
 * colors.sm.Orange      = {smcolor, smcolor, smcolor, smcolor}
-* 
+  
+#### methods
+* colors.hsvToRgb(h, s, v):r,g,b - all arguments have a range from 0 to 1, the output values also have a range from 0 to 1
 
 #### example
 ```lua
@@ -56,5 +61,25 @@ function callback_loop()
         display.clear()
         display.flush()
     end
+end
+```
+
+#### example 2
+```lua
+colors = require("colors")
+display = getComponents("display")[1]
+
+tick = 0
+function callback_loop()
+    if _endtick then
+        display.clear()
+        display.flush()
+        return
+    end
+
+    display.clear(tostring(sm.color.new(colors.hsvToRgb((tick % 120) / 120, 1, 1))))
+    display.flush()
+
+    tick = tick + 1
 end
 ```
