@@ -17,6 +17,8 @@ SComputers, this is a fork of the Scriptable Computers mod
 this fork is compatible with the code of the original Scriptable Computers and with the SCI code
 however, programs written for this mod will not work on the original Scriptable Computers
 
+### small changes
+* in safe-mode, the implementation of sm.json has changed to the json library available via require. since the use of sm.json can cause problems as well as game crashes
 
 ### this mod contains new components such as:
 * sound synthesizer
@@ -45,6 +47,7 @@ however, programs written for this mod will not work on the original Scriptable 
 * image
 * base64
 * gui
+* json(custom implementation)
 
 ### sandbox features
 * if you declare the function "callback_error(str)" then it will be called in cases of an error in the computer
