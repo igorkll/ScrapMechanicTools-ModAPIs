@@ -19,6 +19,7 @@ however, programs written for this mod will not work on the original Scriptable 
 
 ### small changes
 * in safe-mode, the implementation of sm.json has changed to the json library available via require. since the use of sm.json can cause problems as well as game crashes
+* if skipAtLags is enabled (that is, frame loss is acceptable), then when you are not looking at the screen, the picture will not be updated
 
 ### this mod contains new components such as:
 * sound synthesizer
