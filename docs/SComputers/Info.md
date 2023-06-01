@@ -49,6 +49,9 @@ however, programs written for this mod will not work on the original Scriptable 
 * base64
 * gui
 * json(custom implementation)
+* image
+* midi
+* colors
 
 ### sandbox features
 * if you declare the function "callback_error(str)" then it will be called in cases of an error in the computer
