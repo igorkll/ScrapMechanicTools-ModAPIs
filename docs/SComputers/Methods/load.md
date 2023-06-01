@@ -5,7 +5,7 @@ hide_title: true
 sidebar-label: 'load'
 ---
 
-load(chunk, chunkname, mode, lenv) - it works like a loadstring from vanilla Scriptable Computers
+load(chunk, chunkname, mode, env):func,err - it works like a loadstring from vanilla Scriptable Computers
 , but the signature and behavior in case of an error like the standard load from new versions of lua
 does not throw exceptions when loading an invalid piece of code
 allows you to set the name of a piece of code

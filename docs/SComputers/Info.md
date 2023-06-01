@@ -29,9 +29,10 @@ however, programs written for this mod will not work on the original Scriptable 
 * keyboard
 
 
-### load implementation
+### lua implementation
 * lua-in-lua   (there are bugs)
 * scrapVM      (the best option - however, it also contains bugs)
+* dlm          (the best option at the moment)
 * full lua env (dangerous)
 
 
@@ -52,6 +53,7 @@ however, programs written for this mod will not work on the original Scriptable 
 * image
 * midi
 * colors
+* ramfs
 
 ### sandbox features
 * if you declare the function "callback_error(str)" then it will be called in cases of an error in the computer
@@ -75,18 +77,36 @@ you can write your values there
 * added large Russian letters
 * added small Russian letters
 
-### raycast camera features
+### raycast-camera features
 * now methods can accept additional colors
 * drawColor(display, noCollideColor, terrainColor)
 * drawDepth(display, baseColor, noCollideColor)
 * drawColorWithDepth(display, noCollideColor, terrainColor)
 
-### new methods of old components
+### motor features
+* motor.getAvailableBatteries - the number of batteries available to the motor will be reduced, the creative motor will return math.huge
+* motor.getCharge - returns the charge of the motor, if it reaches 0, the motor will try to take the battery and add 50-000 to the charge
+the creative motor always has a math.huge charge, the
+motor loses charge depending on the load, if the bearings are blocked, the engine will quickly drain all the batteries
+* motor.getChargeDelta - it will return how much charge the motor loses in 1 tick (the creative motor has 0)
+* motor.getBearingsCount:number - returns the number of bearings connected to the motor
+* motor.isWorkAvailable:boolean -
+returns true if the engine can start working at the moment (if there is a charge or something to replenish it with)
+the creative engine method will always return true
+* motor.maxStrength - will return the maximum power for this engine (creative 10-000, survival 1000)
+* motor.maxVelocity - will return the maximum speed for this engine (creative 10-000, survival 500)
+
+### disk features
 * disk.clear - clear the disk
+
+### display features
 * display.setSkipAtLags/display.getSkipAtLags
 should I skip the rendering if the fps is lower than the one set by the user,
 you should turn it on if the picture is constantly updated and skipping one flush will not lead to problems
 , or turn it off if each rendering is important
+* display.setRotation/display.getRotation
+by default: 1
+sets the orientation of the screen, please note that the old content will not be redrawed
 * display.getFontWidth - returns the width of the current font
 * display.getFontHeight - returns the height of the current font
 * display.setFont - sets a custom font
@@ -114,17 +134,6 @@ the font is a lua format table:
     height = 5
 }
 ```
-* motor.getAvailableBatteries - the number of batteries available to the motor will be reduced, the creative motor will return math.huge
-* motor.getCharge - returns the charge of the motor, if it reaches 0, the motor will try to take the battery and add 50-000 to the charge
-the creative motor always has a math.huge charge, the
-motor loses charge depending on the load, if the bearings are blocked, the engine will quickly drain all the batteries
-* motor.getChargeDelta - it will return how much charge the motor loses in 1 tick (the creative motor has 0)
-* motor.getBearingsCount:number - returns the number of bearings connected to the motor
-* motor.isWorkAvailable:boolean -
-returns true if the engine can start working at the moment (if there is a charge or something to replenish it with)
-the creative engine method will always return true
-* motor.maxStrength - will return the maximum power for this engine (creative 10-000, survival 1000)
-* motor.maxVelocity - will return the maximum speed for this engine (creative 10-000, survival 500)
 
 
 ### how to use the importer
