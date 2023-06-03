@@ -5,7 +5,7 @@ hide_title: true
 sidebar-label: 'ramfs'
 ---
 
-### allows you to create a file system in RAM
+## allows you to create a file system in RAM
 ### the maximum size of a file system of this type is not limited, however, the amount of data being written is limited by the amount of real RAM
 
 #### methods

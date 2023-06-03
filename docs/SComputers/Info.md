@@ -19,7 +19,6 @@ however, programs written for this mod will not work on the original Scriptable 
 
 ### small changes
 * in safe-mode, the implementation of sm.json has changed to the json library available via require. since the use of sm.json can cause problems as well as game crashes
-* if skipAtLags is enabled (that is, frame loss is acceptable), then when you are not looking at the screen, the picture will not be updated
 
 ### this mod contains new components such as:
 * sound synthesizer
@@ -29,7 +28,7 @@ however, programs written for this mod will not work on the original Scriptable 
 * keyboard
 
 
-### lua implementation
+### lua implementations
 * lua-in-lua   (there are bugs)
 * scrapVM      (the best option - however, it also contains bugs)
 * dlm          (the best option at the moment)
@@ -100,7 +99,17 @@ the creative engine method will always return true
 * disk.clear - clear the disk
 
 ### display features
+* display.setSkipAtNotSight/display.getSkipAtNotSight -
+default: false.
+if set to true, the screen will not be updated for those people who do not look at it.
+this should be set to true if skipping frames will not cause problems.
+if the screen is updated rarely and every frame is important, then you should set false.
+* display.setFrameCheck/display.getFrameCheck -
+default: true.
+if set to true, the display will compare the rendering table, and if they are the same, it will skip the rendering.
+this can optimize a lot of software, but if you do not cause unnecessary renderings, it is better to turn off this option.
 * display.setSkipAtLags/display.getSkipAtLags
+default: true.
 should I skip the rendering if the fps is lower than the one set by the user,
 you should turn it on if the picture is constantly updated and skipping one flush will not lead to problems
 , or turn it off if each rendering is important
