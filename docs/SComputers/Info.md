@@ -64,6 +64,7 @@ however, programs written for this mod will not work on the original Scriptable 
 there are two values hasException and exceptionMsg
 you can write your values there
 * the _endtick flag that is automatically raised if the computer's tick is the last one
+* _VERSION contains uses VM name
 
 ### tablet features
 * The renderAtDistance screen function on the tablet will display the screen even if the tablet is not in your hand
