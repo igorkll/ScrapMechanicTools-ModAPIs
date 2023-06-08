@@ -19,6 +19,9 @@ however, programs written for this mod will not work on the original Scriptable 
 
 ### small changes
 * in safe-mode, the implementation of sm.json has changed to the json library available via require. since the use of sm.json can cause problems as well as game crashes
+* when using clientInvoke(available only in unsafe-mode), ENV will be saved, however, the code is loaded anew every time
+* clientInvoke(str, ...) supports arguments
+* get exceptions "path .. underflow" when using the filesystem has become impossible, instead superfluous ".." just ignore
 
 ### this mod contains new components such as:
 * sound synthesizer
@@ -66,6 +69,20 @@ you can write your values there
 * the _endtick flag that is automatically raised if the computer's tick is the last one
 * _VERSION contains uses VM name
 
+### clientInvoke removed methods(the following functions will be unavailable in clientInvoke/clientInvokeTo)
+* getComponents (and all aliases)
+* reboot
+* setCode / getCode
+* setData / getData
+* setLock / getLock
+* setAlwaysOn / getAlwaysOn
+* setInvisible / getInvisible
+* getCurrentComputer / getChildComputers / getParentComputers
+* clearregs / getreg / setreg
+* ninput / input / out
+* clientInvoke / clientInvokeTo
+* setComponentApi / getComponentApi
+
 ### tablet features
 * The renderAtDistance screen function on the tablet will display the screen even if the tablet is not in your hand
 * the tablet screen is displayed only to the one who holds it in his hand
@@ -85,7 +102,8 @@ you can write your values there
 
 ### motor features
 * motor.getAvailableBatteries - the number of batteries available to the motor will be reduced, the creative motor will return math.huge
-* motor.getCharge - returns the charge of the motor, if it reaches 0, the motor will try to take the battery and add 50-000 to the charge
+* motor.getCharge - returns the charge of the motor, if it reaches 0, the motor will try to take the battery and add 200-000 to the charge
+* motor.getChargeAdditions - it will return how much the charge of the motor increases when it "eats" one battery(200-000)
 the creative motor always has a math.huge charge, the
 motor loses charge depending on the load, if the bearings are blocked, the engine will quickly drain all the batteries
 * motor.getChargeDelta - it will return how much charge the motor loses in 1 tick (the creative motor has 0)
@@ -100,6 +118,14 @@ the creative engine method will always return true
 * disk.clear - clear the disk
 
 ### display features
+* display.reset() - resets all screen settings, list:
+maxClicks, rotation, framecheck, skipAtNotSight, utf8support, renderAtDistance, skipAtLags
+* display.forceFlush() - 
+it works like a regular flush, but updates the picture with 100% probability,
+ignoring setFrameCheck/setSkipAtNotSight/setSkipAtLags
+* display.setUtf8Support/display.getUtf8Support -
+default: false.
+it is necessary to enable utf8 characters for output, however, it may cause performance degradation when rendering text.
 * display.setSkipAtNotSight/display.getSkipAtNotSight -
 default: false.
 if set to true, the screen will not be updated for those people who do not look at it.
@@ -115,7 +141,7 @@ should I skip the rendering if the fps is lower than the one set by the user,
 you should turn it on if the picture is constantly updated and skipping one flush will not lead to problems
 , or turn it off if each rendering is important
 * display.setRotation/display.getRotation
-by default: 1
+by default: 0
 sets the orientation of the screen, please note that the old content will not be redrawed
 * display.getFontWidth - returns the width of the current font
 * display.getFontHeight - returns the height of the current font
@@ -173,6 +199,10 @@ use the check "if _endtick then" there is a _endtick flag raised, this means the
 
 :::caution warning
 when using scrapVM/fullLuaEnv, the number of iterations is unlimited
+:::
+
+:::caution warning
+exceptions in callback_error, clientInvoke, clientInvokeTo cannot be handled in any way other than viewing game logs/debug console
 :::
 
 This documentation was written by MR.Logic.

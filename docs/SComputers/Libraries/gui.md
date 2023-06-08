@@ -17,6 +17,7 @@ sidebar-label: 'gui'
 * guiinstance:createScene(autoclearcolor:smcolor):sceneinstance - create a new scene, you can transfer the color so that when you select a scene, the screen is cleared automatically
 * guiinstance:setGameLight(gamelight:number(0-1)) - sets the game lighting for the gui (it only applies to elements that do not transmit color manually(at the moment, only with pictures))
 * guiinstance:getGameLight():number(0-1) - gets the game lighting for the gui
+* guiinstance:needFlush():boolean - returns true if at least one element has been updated, if you make updates only when necessary, then you should turn off framecheck
 
 ### scene instance
 * sceneinstance:isSelected():boolean - returns true if this scene is selected
@@ -64,9 +65,11 @@ the label looks like a button
 ```lua
 display = getComponents("display")[1]
 camera = getComponents("camera")[1]
+display.reset()
 display.clearClicks()
 display.setSkipAtLags(false)
 display.setClicksAllowed(true)
+display.setFrameCheck(false) --display.flush is called only when necessary, it makes no sense to check the frame on the side of the screen
 
 gui = require("gui").new(display)
 image = require("image")
@@ -148,8 +151,10 @@ function callback_loop()
         label:update()
     end
 
-    gui:draw()
-    display.flush()
+    if gui:needFlush() then
+        gui:draw()
+        display.flush()
+    end
 
     tick = tick + 1
 end
