@@ -17,6 +17,11 @@ SComputers, this is a fork of the Scriptable Computers mod
 this fork is compatible with the code of the original Scriptable Computers and with the SCI code
 however, programs written for this mod will not work on the original Scriptable Computers
 
+:::info note
+global lua changes, now the number of iterations is unlimited, but the execution time of one tick is limited, if the computer does not have time to execute the code in time, an error will pop up
+you can configure how much the computer can "delay" the game-tick in the "Permission Tool" (by default: 2 ticks)
+::::
+
 ### small changes
 * in safe-mode, the implementation of sm.json has changed to the json library available via require. since the use of sm.json can cause problems as well as game crashes
 * when using clientInvoke(available only in unsafe-mode), ENV will be saved, however, the code is loaded anew every time
@@ -59,7 +64,10 @@ however, programs written for this mod will not work on the original Scriptable 
 
 ### sandbox features
 * if you declare the function "callback_error(str)" then it will be called in cases of an error in the computer
-, please note that the error in it can only be viewed in the debug console / game log
+before the computer crashes (but it will crash anyway if you delete the crash information from crashstate on callback_error function)
+at the same time, it will be called before the crash and you will be able to "cancel" the crash
+using the "getCurrentComputer" method and interacting with the crashstate table
+if an exception occurs in this function, it can be caught only in the game logs/debug console
 * if you declare the "callback_loop" function, it will be called on the next tick instead of calling the entire program
 * there is a SCI api for compatibility (env.SCI =env)
 * added the load method, which allows you to set the name of a piece of code and works as in a normal lua, but does not allow you to load bytecode
@@ -196,10 +204,6 @@ creative hard drive has a volume of 16 MB, but does not save data after re-entry
 after adding always on, it is incorrect to use "not input()" to track the shutdown,
 use the check "if _endtick then" there is a _endtick flag raised, this means the last tick
 ::::
-
-:::caution warning
-when using scrapVM/fullLuaEnv, the number of iterations is unlimited
-:::
 
 :::caution warning
 exceptions in callback_error, clientInvoke, clientInvokeTo cannot be handled in any way other than viewing game logs/debug console
