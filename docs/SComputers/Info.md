@@ -123,7 +123,8 @@ the creative engine method will always return true
 * motor.maxVelocity - will return the maximum speed for this engine (creative 10-000, survival 500)
 
 ### disk features
-* disk.clear - clear the disk
+* disk.clear() - clear the disk
+* disk.getMaxSize():number - returns the maximum amount of data that can be written to disk in bytes
 
 ### display features
 * display.reset() - resets all screen settings, list:
